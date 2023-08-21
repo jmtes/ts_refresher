@@ -2,11 +2,11 @@
 let arugula: number;
 let dressing: string;
 let lettuce: number;
-let mealDate: string;
+let mealDate: Date;
 
 arugula = 2;
 dressing = "honey dijon";
-lettuce = undefined;
+lettuce = 2;
 mealDate = new Date("September 13, 2021");
 
 console.log(`We're starting on ${mealDate} with a dressing of ${dressing}.`);
@@ -19,7 +19,7 @@ if (lettuce) {
 	console.log(`There are ${lettuce} lettuce serving(s) for this first meal.`);
 }
 
-arugula = undefined;
+arugula = 1;
 dressing = "balsamic vinaigrette";
 lettuce = 1;
 mealDate = new Date("March 13, 2022");
