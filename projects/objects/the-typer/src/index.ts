@@ -1,6 +1,64 @@
 // Write your types here! ✨
 
-let current = {
+type PathLocation = {
+	type: "path";
+	through: Locationn;
+	shortcut?: Locationn;
+};
+
+type BaseStreamLocation = {
+	type: "stream";
+};
+
+type BeginStreamLocation = {
+	area: "begin";
+	downstream: Locationn;
+};
+
+type MiddleStreamLocation = {
+	area: "middle";
+	upstream: Locationn;
+	downstream: Locationn;
+};
+
+type EndStreamLocation = {
+	area: "end";
+	upstream: Locationn;
+};
+
+type StreamPart =
+	| BeginStreamLocation
+	| MiddleStreamLocation
+	| EndStreamLocation;
+
+type StreamLocation = BaseStreamLocation & StreamPart;
+
+type TownLocation = {
+	type: "town";
+	around?: Locationn;
+	through?: Locationn;
+};
+
+type ClearingLocation = {
+	type: "clearing";
+	through?: Locationn;
+};
+
+type LocationType =
+	| PathLocation
+	| StreamLocation
+	| TownLocation
+	| ClearingLocation;
+
+type BaseLocation = {
+	name: string;
+	proximity: number;
+	treasure?: string;
+};
+
+type Locationn = BaseLocation & LocationType;
+
+let current: Locationn | undefined = {
 	name: "Woesong Bridge",
 	proximity: 100,
 	through: {
